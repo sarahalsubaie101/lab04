@@ -1,0 +1,42 @@
+45 ?- house = house.
+true.
+%both are equal
+
+46 ?- house = abc.
+false.
+%neither are equal in value
+
+47 ?-  edge(a,b) = edge(C,b).
+C = a.
+%C unified with a since its the same structure
+
+48 ?- edge(a,d) = edge(C,B).
+C = a,
+B = d.
+%C matches a and B matches d in the structure
+
+49 ?- edge(C,B) = edge(a,d).
+C = a,
+B = d.
+%C matches a and B matches d in the structure
+
+50 ?- edge(A,f(g,h)) = edge(a,B).
+A = a,
+B = f(g, h).
+%A matches with a, and B matches with f(g,h)
+
+51 ?- edge(A,A) = edge(b,c).
+false.
+%A and A are equal, but b and c aren't
+
+52 ?- edge(A,A) = edge(b,b).
+A = b.
+%A and A are equal, and so are b and b
+
+53 ?- A = B, B = f.
+A = B, B = f.
+%since A equals B, that means it also equals f
+
+54 ?- A = B, B = f, A = e.
+false.
+%A already equals f since it equals B
